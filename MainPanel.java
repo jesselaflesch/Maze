@@ -1,5 +1,4 @@
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.io.File;
@@ -29,8 +28,12 @@ public class MainPanel extends JPanel{
 		page.drawImage(game.getPlayer().getImage(), game.getPlayer().getXLoc(), game.getPlayer().getYLoc(), null);
 		
 		for(int i = 0; i < game.getItems().length; i++){
-			if (game.getItems()[i] == null) {continue;}
-			else {page.drawImage(game.getItems()[i].getImage(), game.getItems()[i].getXLoc(), game.getItems()[i].getYLoc(), null);}
+			if (game.getItems()[i] == null) {
+				continue;
+			}
+			else {
+				page.drawImage(game.getItems()[i].getImage(), game.getItems()[i].getXLoc(), game.getItems()[i].getYLoc(), null);
+			}
 		}
 		
 		for(int i = 0; i < game.getBlocks().size(); i++) {

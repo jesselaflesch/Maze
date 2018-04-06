@@ -1,15 +1,10 @@
 
-import java.awt.Dimension;
-import java.awt.Font;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.FileNotFoundException;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.Timer;
-import javax.swing.UIManager;
 
 public class Movement implements KeyListener{
 	
@@ -26,32 +21,51 @@ public class Movement implements KeyListener{
 		this.panel = panel;
 	}
 	
-	public void startTimer() {timer.start();}
+	public void startTimer() {
+		timer.start();
+	}
 	
 	private class TimerListener implements ActionListener{
 		
-		public void actionPerformed(ActionEvent arg0){panel.repaint();}
-	
+		public void actionPerformed(ActionEvent arg0){
+			panel.repaint();
+		}
 	}
 	
 	public void keyPressed(KeyEvent e) {
 			switch (e.getKeyCode()) {
 				case KeyEvent.VK_LEFT:
-					if (game.getSquares()[game.getPlayer().getRow()][game.getPlayer().getCol() - 1] == 1) {break;}
-					else {player.left();break;}
+					player.left();
+					if(game.getSquares()[game.getPlayer().getRow()][game.getPlayer().getCol()] == 1) {
+						player.right();
+					}
+				break;
 				case KeyEvent.VK_DOWN:
-					if (game.getSquares()[game.getPlayer().getRow() + 1][game.getPlayer().getCol()] == 1) {break;}
-					else {player.down();break;}
+					player.down();
+					if(game.getSquares()[game.getPlayer().getRow()][game.getPlayer().getCol()] == 1) {
+						player.up();
+					}
+				break;
 				case KeyEvent.VK_RIGHT:
-					if (game.getSquares()[game.getPlayer().getRow()][game.getPlayer().getCol() + 1] == 1) {break;}
-					else {player.right();break;}
+					player.right();
+					if(game.getSquares()[game.getPlayer().getRow()][game.getPlayer().getCol()] == 1) {
+						player.left();
+					}
+				break;
 				case KeyEvent.VK_UP:
-					if (game.getSquares()[game.getPlayer().getRow() - 1][game.getPlayer().getCol()] == 1) {break;}
-					else {player.up();break;}
+					player.up();
+						if(game.getSquares()[game.getPlayer().getRow()][game.getPlayer().getCol()] == 1) {
+							player.down();
+						}
+					break;
 			}
 			panel.repaint();
 	}
 	
-	public void keyTyped(KeyEvent e) {}
-	public void keyReleased(KeyEvent e) {}
+	public void keyTyped(KeyEvent e) {
+		
+	}
+	public void keyReleased(KeyEvent e) {
+		
+	}
 }
