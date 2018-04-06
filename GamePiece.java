@@ -7,7 +7,7 @@ public class GamePiece {
 	protected String name;
 	protected ImageIcon image;
 	protected int xLoc, yLoc, row, col;
-	final protected int GAME_HEIGHT = 500, GAME_WIDTH = 1000;
+	final protected int GAME_HEIGHT = 50 * MainFrame.GAME_ROWS, GAME_WIDTH = 50 * MainFrame.GAME_COLS;
 	
 	public GamePiece(String name, String imagePath, int xLoc, int yLoc, int row, int col){
 		this.name = name;
@@ -36,12 +36,16 @@ public class GamePiece {
 	
 	public int getImageHeight() {return image.getIconHeight();}
 	
-	public void up() {yLoc -= 100; if (yLoc < 0) {yLoc = 0;}}
+	public int getRow() {return row;}
 	
-	public void down() {yLoc += 100; if (yLoc > GAME_HEIGHT - image.getIconHeight()) {yLoc = GAME_HEIGHT - image.getIconHeight();}}
+	public int getCol() {return col;}
 	
-	public void left() {xLoc -= 100; if (xLoc < 0) {xLoc = 0;}}
+	public void up() {yLoc -= 50; row -= 1; if (row < 0) {yLoc = 0; row = 0;}}
 	
-	public void right() {xLoc += 100; if (xLoc > GAME_WIDTH - image.getIconWidth()) {xLoc = GAME_WIDTH - image.getIconWidth();}}
+	public void down() {yLoc += 50; row += 1; if (row > MainFrame.GAME_ROWS - 1) {yLoc = GAME_HEIGHT - 50; row = MainFrame.GAME_ROWS - 1;}}
+	
+	public void left() {xLoc -= 50; col -= 1; if (col < 0) {col = 0; xLoc = 0;}}
+	
+	public void right() {xLoc += 50; col += 1; if (col > MainFrame.GAME_COLS - 1) {col = MainFrame.GAME_COLS - 1; xLoc = GAME_WIDTH - 50;}}
 	
 }
