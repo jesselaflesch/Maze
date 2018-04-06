@@ -1,4 +1,7 @@
 
+// Authors: Ian Gonzales & Jesse LaFlesch	Date: 6 April 2018	File: Player.java
+// Purpose: Represents an instance of a Player. 		
+
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -11,8 +14,11 @@ public class Player extends GamePiece {
 		this.image = new ImageIcon(image.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 	}
 		
-	public int getScore() {return score;}
+	public int getScore() {
+		return score;
+	}
 	
-	public void pickUpItem() {score++;}
-	
+	public void pickUpItem() {
+		score++;
+	}	
 }

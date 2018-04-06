@@ -1,10 +1,12 @@
 
+// Authors: Ian Gonzales & Jesse LaFlesch	Date: 6 April 2018	File: Movement.java
+// Purpose: Represents an instance of a Movement object that handles player movement,
+// 			item collision, and controls the game timer.
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -30,7 +32,6 @@ public class Movement implements KeyListener{
 	private class TimerListener implements ActionListener{
 		
 		public void actionPerformed(ActionEvent arg0){
-			
 			panel.repaint();
 		}
 	}
@@ -42,7 +43,7 @@ public class Movement implements KeyListener{
 					if(game.getSquares()[player.getRow()][player.getCol()] == 1) {
 						player.right();
 						
-					}else if (game.getSquares()[player.getRow()][player.getCol()] == 3) {
+					} else if (game.getSquares()[player.getRow()][player.getCol()] == 3) {
 						player.pickUpItem();
 						for (int i = 0; i < items.length; i++) {
 							if (items[i] != null) {
@@ -53,14 +54,14 @@ public class Movement implements KeyListener{
 							}
 						}
 					}
-		
 				break;
+				
 				case KeyEvent.VK_DOWN:
 					player.down();
 					if(game.getSquares()[player.getRow()][player.getCol()] == 1) {
 						player.up();
 					
-					}else if (game.getSquares()[player.getRow()][player.getCol()] == 3) {
+					} else if (game.getSquares()[player.getRow()][player.getCol()] == 3) {
 						player.pickUpItem();
 						for (int i = 0; i < items.length; i++) {
 							if (items[i] != null) {
@@ -72,12 +73,13 @@ public class Movement implements KeyListener{
 						}
 					}
 				break;
+				
 				case KeyEvent.VK_RIGHT:
 					player.right();
 					if(game.getSquares()[player.getRow()][player.getCol()] == 1) {
 						player.left();
 					
-					}else if (game.getSquares()[player.getRow()][player.getCol()] == 3) {
+					} else if (game.getSquares()[player.getRow()][player.getCol()] == 3) {
 						player.pickUpItem();
 						for (int i = 0; i < items.length; i++) {
 							if (items[i] != null) {
@@ -87,16 +89,17 @@ public class Movement implements KeyListener{
 								}
 							}
 						}
-					}else if (player.getRow() == 10 && player.getCol() == 25) {
+					} else if (player.getRow() == 10 && player.getCol() == 25) {
 						JOptionPane.showMessageDialog(null, "YOU WON!!");
 					}
 				break;
+				
 				case KeyEvent.VK_UP:
 					player.up();
 						if(game.getSquares()[player.getRow()][player.getCol()] == 1) {
 							player.down();
 							
-						}else if (game.getSquares()[player.getRow()][player.getCol()] == 3) {
+						} else if (game.getSquares()[player.getRow()][player.getCol()] == 3) {
 							player.pickUpItem();
 							for (int i = 0; i < items.length; i++) {
 								if (items[i] != null) {
@@ -113,9 +116,8 @@ public class Movement implements KeyListener{
 	}
 	
 	public void keyTyped(KeyEvent e) {
-		
 	}
-	public void keyReleased(KeyEvent e) {
-		
+	
+	public void keyReleased(KeyEvent e) {	
 	}
 }

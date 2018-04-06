@@ -1,4 +1,8 @@
 
+// Authors: Ian Gonzales & Jesse LaFlesch	Date: 6 April 2018	File: GamePiece.java
+// Purpose: Represents an instance of a GamePiece. This class is the parent class of
+//			the Player, Item, Block, and Enemy Classes.
+
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -18,34 +22,83 @@ public class GamePiece {
 		this.col = col;
 	}
 	
-	public int getXLoc() {return xLoc;}
+	public int getXLoc() {
+		return xLoc;
+	}
 
-	public void setXLoc(int xLoc) {this.xLoc = xLoc;}
+	public void setXLoc(int xLoc) {
+		this.xLoc = xLoc;
+	}
 
-	public int getYLoc() {return yLoc;}
+	public int getYLoc() {
+		return yLoc;
+	}
 
-	public void setYLoc(int yLoc) {this.yLoc = yLoc;}
+	public void setYLoc(int yLoc) {
+		this.yLoc = yLoc;
+	}
 
-	public String getName() {return name;}
+	public String getName() {
+		return name;
+	}
 	
-	public void setName(String name) {this.name = name;}
+	public void setName(String name) {
+		this.name = name;
+	}
 
-	public Image getImage() {return image.getImage();}
+	public Image getImage() {
+		return image.getImage();
+	}
 	
-	public int getImageWidth() {return image.getIconWidth();}
+	public int getImageWidth() {
+		return image.getIconWidth();
+	}
 	
-	public int getImageHeight() {return image.getIconHeight();}
+	public int getImageHeight() {
+		return image.getIconHeight();
+	}
 	
-	public int getRow() {return row;}
+	public int getRow() {
+		return row;
+	}
 	
-	public int getCol() {return col;}
+	public int getCol() {
+		return col;
+	}
 	
-	public void up() {yLoc -= 50; row -= 1; if (row < 0) {yLoc = 0; row = 0;}}
+	public void up() {
+		yLoc -= 50; 
+		row -= 1; 
+		if (row < 0) { 
+			yLoc = 0; 
+			row = 0;
+		}
+	}
 	
-	public void down() {yLoc += 50; row += 1; if (row > MainFrame.GAME_ROWS - 1) {yLoc = GAME_HEIGHT - 50; row = MainFrame.GAME_ROWS - 1;}}
+	public void down() {
+		yLoc += 50; 
+		row += 1; 
+		if (row > MainFrame.GAME_ROWS - 1) {
+			yLoc = GAME_HEIGHT - 50; 
+			row = MainFrame.GAME_ROWS - 1;
+		}
+	}
 	
-	public void left() {xLoc -= 50; col -= 1; if (col < 0) {col = 0; xLoc = 0;}}
+	public void left() {
+		xLoc -= 50; 
+		col -= 1; 
+		if (col < 0) { 
+			col = 0; 
+			xLoc = 0;
+		}
+	}
 	
-	public void right() {xLoc += 50; col += 1; if (col > MainFrame.GAME_COLS - 1) {col = MainFrame.GAME_COLS - 1; xLoc = GAME_WIDTH - 50;}}
-	
+	public void right() {
+		xLoc += 50; 
+		col += 1; 
+		if (col > MainFrame.GAME_COLS - 1) { 
+			col = MainFrame.GAME_COLS - 1; 
+			xLoc = GAME_WIDTH - 50;
+		}
+	}
 }
