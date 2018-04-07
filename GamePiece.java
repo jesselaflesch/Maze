@@ -66,6 +66,7 @@ public class GamePiece {
 		return col;
 	}
 	
+	// Up, Down, Left & Right handle panel border control
 	public void up() {
 		yLoc -= 50; 
 		row -= 1; 

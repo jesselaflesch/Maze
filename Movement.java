@@ -36,13 +36,16 @@ public class Movement implements KeyListener{
 		}
 	}
 	
+	
 	public void keyPressed(KeyEvent e) {
 			switch (e.getKeyCode()) {
 				case KeyEvent.VK_LEFT:
 					player.left();
+					// Border control to check if the player is contacting a block
 					if(game.getSquares()[player.getRow()][player.getCol()] == 1) {
 						player.right();
-						
+					
+					// Item collision detection	
 					} else if (game.getSquares()[player.getRow()][player.getCol()] == 3) {
 						player.pickUpItem();
 						for (int i = 0; i < items.length; i++) {

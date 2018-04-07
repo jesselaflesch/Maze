@@ -41,7 +41,7 @@ public class Game {
 			row++;
 		} while(fileScanner.hasNextLine());
 		
-		//Creating the items and putting them in the blank spaces
+		// Creating the items and putting them in the blank spaces
 		for (int i = 0; i < items.length; i++){
 			boolean available = false;
 			int r = 0, c = 0;
@@ -57,7 +57,6 @@ public class Game {
 			items[i] = new Item("Rupee", "./src/images/item.png", 50 * c, 50 * r, r, c);
 		}
 	}
-	
 	
 	public Player getPlayer() {
 		return player;
